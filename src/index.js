@@ -1,3 +1,6 @@
 import "./styles.css";
 
-console.log("test");
+import { projects, addTodo } from "./logic.js";
+
+addTodo('test','test','test','test','test','test');
+console.log(projects);
