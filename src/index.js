@@ -1,6 +1,12 @@
 import "./styles.css";
+import { addProject } from "./project-logic.js";
+import { projects, addTodo } from "./project-logic.js";
+import { addProjectsToDOM } from "./dom.js";
 
-import { projects, addTodo } from "./logic.js";
+// Add Projects When First Opening
+addProjectsToDOM(projects);
 
-addTodo('test','test','test','test','test','test');
+addProject('Work');
+addProject('School');
+
 console.log(projects);

@@ -1,1 +1,30 @@
-<h1>Test</h1>
+<div class="app-container">
+    <nav>
+        <h1>Projects</h1>
+        <div class="projects-container" id="projectsContainer">
+            <!-- Projects Goes Here -->
+        </div>
+        <div class="add-project project-container" id="addProject">
+            + Add Project
+        </div>
+        <div class="add-project-popup" id="addProjectPopup" style="display: none;">
+            <h2>New Project</h2>
+            <form action="">
+                <label for="project-name">Name</label>
+                <input type="text" name="project-name" class="project-name-input" id="projectNameInput" placeholder="Project name...">
+                <div class="input-buttons">
+                    <button id="saveButtonProject">Save</button>
+                    <button id="cancelButtonProject">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <h1 class="project-name" id="projectName"></h1>
+        <div class="todos-container" id="todosContainer">
+            <!-- Todos goes Here -->
+        </div>
+    </div>
+</div>
+
