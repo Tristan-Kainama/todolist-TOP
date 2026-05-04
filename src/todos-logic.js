@@ -12,7 +12,7 @@ class todo {
     }
 }
 
-const addTodo = (title, description, dueDate, priority, notes, checkList, id) => {
+export const addTodo = (title, description, dueDate, priority, notes, checkList, id) => {
     const newTodo = new Todo(title, description, dueDate, priority, notes, checkList, id);
     return newTodo;
 }

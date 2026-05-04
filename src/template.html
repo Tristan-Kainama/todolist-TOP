@@ -25,6 +25,34 @@
         <div class="todos-container" id="todosContainer">
             <!-- Todos goes Here -->
         </div>
+        <div class="add-todo-button" id="addTodoButton" style="display: none;">
+            + Add To-do
+        </div>
+        <div class="add-todo-popup" id="addTodoPopup" style="display: none;">
+            <h2>New To-Do</h2>
+            <form action="">
+                <label for="todo-title">Title</label>
+                <input type="text" name="todo-title" id="toto-title-input" id="todoTitleInput">
+
+                <label for="todo-desc">Description</label>
+                <textarea name="todo-desc" rows="4" cols="75" class="todo-desc-input" id="todoDescInput"></textarea>
+
+                <label for="due-date">Due Date</label>
+                <input type="date" name="due-date" id="dueDateInput">
+
+                <label for="priority">Priority</label>
+                <select name="priority" id="priorityInput">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <div class="input-buttons">
+                    <button id="saveButtonTodo">Save</button>
+                    <button id="cancelButtonTodo">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

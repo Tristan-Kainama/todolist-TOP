@@ -8,6 +8,24 @@ const addProjectPopup = document.getElementById('addProjectPopup');
 const saveButtonProject = document.getElementById('saveButtonProject');
 const cancelButtonProject = document.getElementById('cancelButtonProject');
 
+const addTodoDOM = document.getElementById('addTodoButton');
+const addTodoPopup = document.getElementById('addTodoPopup');
+
+export const addTodosToDOM = (todos) => {
+    todosContainer.textContent = '';
+    for (const todo of todos) {
+        const todoDOM = document.createElement('div');
+        todoDOM.textContent = todo.name;
+        todoDOM.className = 'todo-container';
+        todoDOM.id = 'todo' + todo.id;
+        todosContinaer.appendChild(projectDOM);
+    }
+}
+
+addTodoDOM.addEventListener('click', function () {
+    addTodoPopup.style = 'display: block';
+});
+
 export const addProjectsToDOM = (projects) => {
     projectsContainer.textContent = '';
     for (const project of projects) {
@@ -18,6 +36,7 @@ export const addProjectsToDOM = (projects) => {
         projectDOM.addEventListener('click', function (event) {
             const projectNameDOM = document.getElementById('projectName');
             projectNameDOM.textContent = project.name;
+            addTodoButton.style = 'display: block;';
         });
 
         projectsContainer.appendChild(projectDOM);
