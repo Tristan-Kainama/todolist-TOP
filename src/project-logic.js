@@ -11,8 +11,8 @@ class Project {
 }
 
 export const addProject = (name) => {
-    projectLength++;
     const id = projectLength;
+    projectLength++;
     const todos = [];
     const newProject = new Project(id, name, todos);
     projects.push(newProject);

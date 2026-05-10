@@ -1,4 +1,5 @@
 import { addProject } from "./project-logic.js";
+import { addTodo } from "./todos-logic.js";
 
 const projectsContainer = document.getElementById('projectsContainer');
 const todosContainer = document.getElementById('todosContainer');
@@ -10,20 +11,21 @@ const cancelButtonProject = document.getElementById('cancelButtonProject');
 
 const addTodoDOM = document.getElementById('addTodoButton');
 const addTodoPopup = document.getElementById('addTodoPopup');
+const saveButtonTodo = document.getElementById('saveButtonTodo');
+const cancelButtonTodo = document.getElementById('cancelButtonTodo');
 
 export const addTodosToDOM = (todos) => {
-    todosContainer.textContent = '';
     for (const todo of todos) {
         const todoDOM = document.createElement('div');
         todoDOM.textContent = todo.name;
         todoDOM.className = 'todo-container';
         todoDOM.id = 'todo' + todo.id;
-        todosContinaer.appendChild(projectDOM);
+        todosContainer.appendChild(todoDOM);
     }
 }
 
 addTodoDOM.addEventListener('click', function () {
-    addTodoPopup.style = 'display: block';
+    addTodoPopup.style = 'display: block;';
 });
 
 export const addProjectsToDOM = (projects) => {
@@ -36,7 +38,21 @@ export const addProjectsToDOM = (projects) => {
         projectDOM.addEventListener('click', function (event) {
             const projectNameDOM = document.getElementById('projectName');
             projectNameDOM.textContent = project.name;
+
+            const todosContainer = document.getElementById('todosContainer');
+            todosContainer.textContent = '';
+            addTodosToDOM(project.todos);
+
             addTodoButton.style = 'display: block;';
+            saveButtonTodo.addEventListener('click', function (event) {
+                event.preventDefault();
+                console.log('test');
+            });
+
+            cancelButtonTodo.addEventListener('click', function (event) {
+                event.preventDefault();
+                addTodoPopup.style = 'display: none;';
+            });
         });
 
         projectsContainer.appendChild(projectDOM);

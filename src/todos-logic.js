@@ -1,4 +1,4 @@
-import { projects } from './project-logic';
+import { projects } from './project-logic.js';
 
 class todo {
     constructor(title, description, dueDate, priority, notes, checkList, id){
@@ -12,7 +12,7 @@ class todo {
     }
 }
 
-export const addTodo = (title, description, dueDate, priority, notes, checkList, id) => {
-    const newTodo = new Todo(title, description, dueDate, priority, notes, checkList, id);
-    return newTodo;
+export const addTodo = (projectId, title, description, dueDate, priority, notes, checkList, id) => {
+    const newTodo = new todo(title, description, dueDate, priority, notes, checkList, id);
+    projects[projectId].todos.push(newTodo);
 }
