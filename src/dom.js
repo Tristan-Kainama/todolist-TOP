@@ -14,18 +14,56 @@ const addTodoPopup = document.getElementById('addTodoPopup');
 const saveButtonTodo = document.getElementById('saveButtonTodo');
 const cancelButtonTodo = document.getElementById('cancelButtonTodo');
 
+let selectedProject = null;
+
 export const addTodosToDOM = (todos) => {
+    todosContainer.textContent = '';
     for (const todo of todos) {
         const todoDOM = document.createElement('div');
-        todoDOM.textContent = todo.name;
+        todoDOM.textContent = todo.title;
         todoDOM.className = 'todo-container';
         todoDOM.id = 'todo' + todo.id;
         todosContainer.appendChild(todoDOM);
     }
 }
 
+const renderSelectedProject = (project) => {
+    selectedProject = project;
+    const projectNameDOM = document.getElementById('projectName');
+    projectNameDOM.textContent = project.name;
+    addTodoDOM.style.display = 'block';
+    addTodosToDOM(project.todos);
+}
+
 addTodoDOM.addEventListener('click', function () {
-    addTodoPopup.style = 'display: block;';
+    addTodoPopup.style.display = 'block';
+});
+
+saveButtonTodo.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (!selectedProject) {
+        alert('Select a project before adding a todo.');
+        return;
+    }
+
+    const todoTitleInput = document.getElementById('todoTitleInput').value.trim();
+    const todoDescInput = document.getElementById('todoDescInput').value;
+    const dueDateInput = document.getElementById('dueDateInput').value;
+    const priorityInput = document.getElementById('priorityInput').value;
+
+    if (!todoTitleInput) {
+        alert('Todo title is required.');
+        return;
+    }
+
+    addTodo(selectedProject.id, todoTitleInput, todoDescInput, dueDateInput, priorityInput, 'None', false);
+    renderSelectedProject(selectedProject);
+    addTodoPopup.style.display = 'none';
+});
+
+cancelButtonTodo.addEventListener('click', function (event) {
+    event.preventDefault();
+    addTodoPopup.style.display = 'none';
 });
 
 export const addProjectsToDOM = (projects) => {
@@ -36,23 +74,7 @@ export const addProjectsToDOM = (projects) => {
         projectDOM.className = 'project-container';
         projectDOM.id = 'project' + project.id;
         projectDOM.addEventListener('click', function (event) {
-            const projectNameDOM = document.getElementById('projectName');
-            projectNameDOM.textContent = project.name;
-
-            const todosContainer = document.getElementById('todosContainer');
-            todosContainer.textContent = '';
-            addTodosToDOM(project.todos);
-
-            addTodoButton.style = 'display: block;';
-            saveButtonTodo.addEventListener('click', function (event) {
-                event.preventDefault();
-                console.log('test');
-            });
-
-            cancelButtonTodo.addEventListener('click', function (event) {
-                event.preventDefault();
-                addTodoPopup.style = 'display: none;';
-            });
+            renderSelectedProject(project);
         });
 
         projectsContainer.appendChild(projectDOM);

@@ -1,5 +1,7 @@
 import { projects } from './project-logic.js';
 
+let todoLength = 0;
+
 class todo {
     constructor(title, description, dueDate, priority, notes, checkList, id){
         this.title = title;
@@ -12,7 +14,8 @@ class todo {
     }
 }
 
-export const addTodo = (projectId, title, description, dueDate, priority, notes, checkList, id) => {
-    const newTodo = new todo(title, description, dueDate, priority, notes, checkList, id);
+export const addTodo = (projectId, title, description, dueDate, priority, notes, checkList) => {
+    const newTodo = new todo(title, description, dueDate, priority, notes, checkList, todoLength);
+    todoLength++;
     projects[projectId].todos.push(newTodo);
 }

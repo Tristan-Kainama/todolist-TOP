@@ -9,6 +9,6 @@ addProjectsToDOM(projects);
 addProject('Home');
 addProject('School');
 
-addTodo(0, 'Buy Groceries', 'Buying Groceries', '2024-06-01', 'high', 'None', true, 0);
+addTodo(0, 'Buy Groceries', 'Buying Groceries', '2024-06-01', 'high', 'None', true);
 
 console.log(projects);
