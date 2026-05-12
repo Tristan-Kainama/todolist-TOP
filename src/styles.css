@@ -101,3 +101,14 @@ nav {
 .add-todo-popup form input {
     width: 100%;
 }
+
+.todos-container {
+    margin: 10px 0px;
+}
+
+.todo-container {
+    background-color: white;
+    padding: 10px;
+    border-left: 5px solid black;
+    margin: 10px;
+}

@@ -32,7 +32,7 @@
             <h2>New To-Do</h2>
             <form action="">
                 <label for="todo-title">Title</label>
-                    <input type="text" name="todo-title" id="todoTitleInput" placeholder="Todo title...">
+                <input type="text" name="todo-title" id="todoTitleInput" placeholder="Todo title...">
 
                 <label for="todo-desc">Description</label>
                 <textarea name="todo-desc" rows="4" cols="75" class="todo-desc-input" id="todoDescInput"></textarea>
@@ -50,6 +50,31 @@
                 <div class="input-buttons">
                     <button type="button" id="saveButtonTodo">Save</button>
                     <button type="button" id="cancelButtonTodo">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="add-todo-popup" id="editTodoPopup" style="display: none;">
+            <h2>Edit Todo</h2>
+            <form action="">
+                <label for="todo-title">Title</label>
+                <input type="text" name="todo-title" id="todoTitleInputEdit">
+
+                <label for="todo-desc">Description</label>
+                <textarea name="todo-desc" rows="4" cols="75" class="todo-desc-input" id="todoDescInputEdit"></textarea>
+
+                <label for="due-date">Due Date</label>
+                <input type="date" name="due-date" id="dueDateInputEdit">
+
+                <label for="priority">Priority</label>
+                <select name="priority" id="priorityInputEdit">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <div class="input-buttons">
+                    <button type="button" id="saveButtonTodoEdit">Save</button>
+                    <button type="button" id="cancelButtonTodoEdit">Cancel</button>
                 </div>
             </form>
         </div>
